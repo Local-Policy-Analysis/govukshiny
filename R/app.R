@@ -67,7 +67,8 @@ run_preview_app <- function(){
       column(3,
         govuk_textInput("text", h3("Text input")))
     )
-  ))
+  ),
+  tab2 = fluidPage(h1("Tab 2", class = "govuk-heading-l")))
   }
   server <- function(input, output, session){
       observe({

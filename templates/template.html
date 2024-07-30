@@ -14,6 +14,7 @@
   <link rel="apple-touch-icon" href="www/assets/images/govuk-icon-180.png">
   <link rel="manifest" href="www/assets/manifest.json">
   <link rel="stylesheet" href="www/stylesheets/govuk-frontend.min.css">
+  <link rel="stylesheet" href="www/stylesheets/selecters_fix.css">
 </head>
 <body class="govuk-template__body">
   <script>
@@ -42,7 +43,6 @@
        <a href="#" class="govuk-header__link govuk-header__service-name">
         Sample App
        </a>
-       <!-- Dummied out navigation for now
        <nav aria-label="Menu" class="govuk-header__navigation">
         <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" hidden>Menu</button>
         <ul id="navigation" class="govuk-header__navigation-list" role="tablist">
@@ -56,14 +56,8 @@
               Tab 2
             </a>
           </li>
-          <li class="govuk-header__navigation-item">
-            <a class="govuk-header__link" href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">
-              Tab 3
-            </a>
-          </li>
         </ul>
       </nav>
-      -->
       </div>
     </div>
   </header>
@@ -79,7 +73,10 @@
       </p>
     </div>
     <main class="govuk-main-wrapper" id="main-content" role="main">
-      {{contents}}
+      <div class="tab-content">
+        <div role="tab-panel" class="tab-pane active" id="tab1"> {{ contents }}</div>
+        <div role="tab-panel" class="tab-pane" id="tab2"> {{ tab2 }}</div>
+      </div>
     </main>
   </div>
   <footer class="govuk-footer" role="contentinfo">
