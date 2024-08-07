@@ -25,6 +25,8 @@ All of the components are optional except the selectize component, which overwri
 
 The main difference here is that rather than using Shiny's `fluidPage` function to make the page, we use the `htmlTemplate` function to define a custom html page using the [GovUK page template](https://design-system.service.gov.uk/styles/page-template/), which is then populated with R Shiny objects.
 
+It's not the easiest read, but it might be worth looking through the Shiny documentation for [templates](https://shiny.posit.co/r/articles/build/templates/)
+
 ---
 
 # Tabs
