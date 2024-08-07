@@ -68,7 +68,8 @@ run_preview_app <- function(){
         govuk_textInput("text", h3("Text input")))
     )
   ),
-  tab2 = fluidPage(h1("Tab 2", class = "govuk-heading-l")))
+  tab2 = fluidPage(h1("Tab 2", class = "govuk-heading-l"),
+        plotly::plotlyOutput('plot')))
   }
   server <- function(input, output, session){
       observe({
@@ -76,6 +77,10 @@ run_preview_app <- function(){
     reactiveValuesToList(input)
     session$doBookmark()
   })
+    plt <- ggplot2::ggplot(mtcars, ggplot2::aes(x = mpg, y = hp)) + ggplot2::geom_point()
+    
+  output$plot <- plotly::renderPlotly(plotly::ggplotly(plt) |> plotly::layout(font = list(family = "GDS Transport")))
+
   onBookmarked(function(url) {
     updateQueryString(url)
   })

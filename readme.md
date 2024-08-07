@@ -1,8 +1,29 @@
 # Sample GovUK App
 
-Very simple app that uses the GovUK styling 
+Very simple app that uses the [GovUK Design System](https://design-system.service.gov.uk/). 
 
-Look at `run_preview_app()` for details, but basically it uses templates
+# Quickstart Guide
+
+Apparently this doesn't run that well in RStudio for reasons I don't really understand. (This seems to be an RStudio problem, and not an R problem). 
+
+## Not RStudio
+
+If you're *not* in RStudio, set your working directory to the top of this directory (probably a folder called "govukshiny"), and just run `components.R` and `app.R` in either order and then run `run_preview_app()`. 
+
+
+## RStudio
+
+If you *are* in RStudio, it tries to *help* and the buttons to "run" and "source" are replaced by "run App" which steadfastly refuses to work. You still need to set the working directory to "govukshiny", and run `components.R` by pressing "source" in the top-right of the window but you will need to run the contents of `app.R` manually, probably by highlighting everything in the file and pressing `ctrl + enter`. 
+
+Then run `run_preview_app()` in the terminal.
+
+---
+
+# How it works
+
+All of the components are optional except the selectize component, which overwrites the default shiny selectize box. If for some reason you need both styles in the same sheet, this won't work. 
+
+The main difference here is that rather than using Shiny's `fluidPage` function to make the page, we use the `htmlTemplate` function to define a custom html page using the [GovUK page template](https://design-system.service.gov.uk/styles/page-template/), which is then populated with R Shiny objects.
 
 ---
 
@@ -10,19 +31,11 @@ Look at `run_preview_app()` for details, but basically it uses templates
 
 Sorry that this is all just editing the template rather than using shiny properly!
 
-Currently, everything is done using a single input, `{{contents}}` in this section:
-
-``` html
-    <main class="govuk-main-wrapper" id="main-content" role="main">
-      {{contents}}
-    </main>
-````
-
-but we can instead leverage the way that govuk does tabs to cheat some in. 
+Here we leverage the way that govuk does tabs to cheat some in. 
 
 ## Navigation
 
-(Part of this is dummied out on line 45+ of [template.html](templates/template.html))
+(This is on line 48+ of [template.html](templates/template.html))
 
 Inside the `govuk-header__content` div in the template, we add a menu
 
